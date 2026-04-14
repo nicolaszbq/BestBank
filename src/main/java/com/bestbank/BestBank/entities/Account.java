@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "accounts_db")
@@ -21,9 +22,9 @@ public class Account {
     private Long id;
 
     private String name;
-    private Long agency;
+    private int agency;
     private String email;
-    private LocalDate brithDate;
+    private Date brithDate;
     private BigDecimal balanceAmount;
     private BigDecimal limitAmount;
 
