@@ -20,17 +20,6 @@ public class AccountService {
         return accounts;
     }
 
-    /*
-    this.name = name;
-        this.agency = agency;
-        this.email = email;
-        this.birthDate = new Date();
-        this.balanceAmount = balanceAmount;
-        this.limitAmount = limitAmount;
-        this.limitSituation = new BigDecimal("0");
-     */
-
-
     public void save(Account a){
         Account b = new Account(null,a.getName(),a.getAgency(),a.getEmail(),new Date(), a.getBalanceAmount(),a.getLimitAmount(),new BigDecimal("0"));
         accountRepository.save(b);

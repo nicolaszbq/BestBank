@@ -22,14 +22,7 @@ public class AccountController {
         List<Account> accounts = accountService.findAll();
         return accounts;
     }
-    /*
-    private String name;
-    private Long agency;
-    private String email;
-    private LocalDate brithDate;
-    private BigDecimal balanceAmount;
-    private BigDecimal limitAmount;
-     */
+
     @PostMapping("/save")
     public void createAccount(@RequestBody Account acc){
         accountService.save(acc);

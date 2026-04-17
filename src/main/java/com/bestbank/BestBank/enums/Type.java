@@ -2,6 +2,6 @@ package com.bestbank.BestBank.enums;
 
 public enum Type {
     PIX,
-    DEPOSIT,
+    TRANSFER,
     WITHDRAW
 }

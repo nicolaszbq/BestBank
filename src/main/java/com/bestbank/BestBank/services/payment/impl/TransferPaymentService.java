@@ -3,22 +3,24 @@ package com.bestbank.BestBank.services.payment.impl;
 import com.bestbank.BestBank.entities.Account;
 import com.bestbank.BestBank.entities.Transaction;
 import com.bestbank.BestBank.enums.Status;
+import com.bestbank.BestBank.enums.Type;
 import com.bestbank.BestBank.repository.AccountRepository;
 import com.bestbank.BestBank.repository.TransactionRepository;
 import com.bestbank.BestBank.services.payment.PaymentService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 @Service
-public class DepositPaymentService implements PaymentService {
+public class TransferPaymentService implements PaymentService {
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private TransactionRepository transactionRepository;
 
     @Override
     @Transactional
@@ -37,6 +39,9 @@ public class DepositPaymentService implements PaymentService {
                 takeMoney(from, transaction.getAmount());
                 BigDecimal newSit = from.getLimitSituation().add(amount);
                 from.setLimitSituation(newSit);
+                transaction.setTransactionType(Type.TRANSFER);
+                transaction.setTransactionStatus(Status.COMPLETED);
+                transactionRepository.save(transaction);
             }else{
                 throw new RuntimeException("You cannot make this transfer, due to your limit amount");
             }
@@ -57,6 +62,8 @@ public class DepositPaymentService implements PaymentService {
         }else{
             addMoney(from, transaction.getAmount());
             takeMoney(to, transaction.getAmount());
+            from.setLimitSituation(from.getLimitSituation().subtract(amount));
+            transactionRepository.deleteById(transaction.getId());
             transaction.setTransactionStatus(Status.REVERSED);
         }
     }
