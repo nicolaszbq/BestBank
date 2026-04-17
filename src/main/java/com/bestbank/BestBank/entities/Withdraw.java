@@ -11,20 +11,21 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "deposits_db")
-@Getter
-@Setter
+@Table(name = "withdraw_db")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Deposit {
+@Getter
+@Setter
+public class Withdraw {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    private Long destinationAccountId;
+    private Long targetAccountId;
     private BigDecimal amount;
-    private Date depositDate;
+    private Date withdrawDate;
     private Status status;
 
-    public Deposit(Long id, BigDecimal amount, Date date, Status status) {
+
+    public Withdraw(Long targetAccountId, BigDecimal amount, Date date, Status status) {
     }
 }
