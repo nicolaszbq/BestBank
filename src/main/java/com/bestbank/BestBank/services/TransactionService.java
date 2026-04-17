@@ -10,7 +10,7 @@ public class TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    public Transaction getTransactionByTransactionId(Long id){
+    public Transaction getTransactionByTransactionId(String id){
         return transactionRepository.getTransactionById(id);
     }
 }

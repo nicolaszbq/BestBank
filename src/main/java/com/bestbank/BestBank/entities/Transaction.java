@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "transactions_db")
@@ -19,18 +20,24 @@ import java.time.LocalDateTime;
 @Setter
 public class Transaction {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "from_account_id")
-    private Account fromAccount;
+    private Long fromAccountId;
 
-    @ManyToOne
-    @JoinColumn(name = "to_account_id")
-    private Account toAccount;
+    private Long toAccountId;
 
-    private LocalDateTime timeOfTransaction;
+    private Date timeOfTransaction;
     private BigDecimal amount;
     private Type transactionType;
     private Status transactionStatus;
+
+    public Transaction(Long fromAccountId, Long toAccountId, BigDecimal amount, Type transactionType){
+        this.fromAccountId = fromAccountId;
+        this.toAccountId = toAccountId;
+        this.timeOfTransaction = new Date();
+        this.amount = amount;
+        this.transactionType = transactionType;
+        this.transactionStatus = Status.INCOMPLETED;
+    }
 }

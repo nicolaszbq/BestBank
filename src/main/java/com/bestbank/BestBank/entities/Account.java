@@ -24,10 +24,21 @@ public class Account {
     private String name;
     private int agency;
     private String email;
-    private Date brithDate;
+    private Date birthDate;
     private BigDecimal balanceAmount;
     private BigDecimal limitAmount;
 
+    private BigDecimal limitSituation;
 
+    public Account(Long id, String name, int agency, String email, Date birthDate, BigDecimal balanceAmount, BigDecimal limitAmount){
+        this.id = id;
+        this.name = name;
+        this.agency = agency;
+        this.email = email;
+        this.birthDate = new Date();
+        this.balanceAmount = balanceAmount;
+        this.limitAmount = limitAmount;
+        this.limitSituation = new BigDecimal("0");
+    }
 
 }
