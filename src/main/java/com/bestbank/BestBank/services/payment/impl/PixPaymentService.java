@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Service
 public class PixPaymentService implements PaymentService {
@@ -38,6 +39,7 @@ public class PixPaymentService implements PaymentService {
                 takeMoney(from, transaction.getAmount());
                 BigDecimal newSit = from.getLimitSituation().add(amount);
                 from.setLimitSituation(newSit);
+                transaction.setTimeOfTransaction(new Date());
                 transaction.setTransactionType(Type.PIX);
                 transaction.setTransactionStatus(Status.COMPLETED);
                 transactionRepository.save(transaction);

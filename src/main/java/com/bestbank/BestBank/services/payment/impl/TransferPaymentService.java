@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Service
 public class TransferPaymentService implements PaymentService {
@@ -41,6 +42,7 @@ public class TransferPaymentService implements PaymentService {
                 from.setLimitSituation(newSit);
                 transaction.setTransactionType(Type.TRANSFER);
                 transaction.setTransactionStatus(Status.COMPLETED);
+                transaction.setTimeOfTransaction(new Date());
                 transactionRepository.save(transaction);
             }else{
                 throw new RuntimeException("You cannot make this transfer, due to your limit amount");
@@ -58,7 +60,7 @@ public class TransferPaymentService implements PaymentService {
 
         BigDecimal amount = transaction.getAmount();
         if(transaction.getTransactionStatus() == Status.REVERSED || transaction.getTransactionStatus() == Status.CANCELED ){
-            throw new RuntimeException("This transaction, was alredy reversed!");
+            throw new RuntimeException("This transaction, was already reversed!");
         }else{
             addMoney(from, transaction.getAmount());
             takeMoney(to, transaction.getAmount());

@@ -27,7 +27,9 @@ public class Transaction {
 
     private Long toAccountId;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date timeOfTransaction;
+
     private BigDecimal amount;
     private Type transactionType;
     private Status transactionStatus;
