@@ -18,7 +18,7 @@ public class AccountService {
     }
 
     public void save(Account a){
-        Account b = new Account(null,a.getName(), a.getPassword(),a.getAgency(),a.getEmail(),new Date(), a.getBalanceAmount(),a.getLimitAmount(),new BigDecimal("0"));
+        Account b = new Account(null,a.getName(), a.getPassword(),a.getAgency(),a.getEmail(),a.getBirthDate(), a.getBalanceAmount(),a.getLimitAmount(),new BigDecimal("0"));
         accountRepository.save(b);
     }
 }

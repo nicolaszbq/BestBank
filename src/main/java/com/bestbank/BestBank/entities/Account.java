@@ -27,18 +27,18 @@ public class Account {
     private String password;
     private int agency;
     private String email;
-    private Date birthDate;
+    private LocalDate birthDate;
     private BigDecimal balanceAmount;
     private BigDecimal limitAmount;
 
     private BigDecimal limitSituation;
 
-    public Account(String id, String name, int agency, String email, Date birthDate, BigDecimal balanceAmount, BigDecimal limitAmount){
+    public Account(String id, String name, int agency, String email, LocalDate  birthDate, BigDecimal balanceAmount, BigDecimal limitAmount){
         this.id = id;
         this.name = name;
         this.agency = agency;
         this.email = email;
-        this.birthDate = new Date();
+        this.birthDate = birthDate;
         this.balanceAmount = balanceAmount;
         this.limitAmount = limitAmount;
         this.limitSituation = new BigDecimal("0");

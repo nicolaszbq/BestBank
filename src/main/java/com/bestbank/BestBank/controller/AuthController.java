@@ -57,6 +57,7 @@ public class AuthController {
             account.setBalanceAmount(new BigDecimal("0"));
             account.setLimitAmount(new BigDecimal("0"));
             account.setAgency(1593);
+            account.setLimitAmount(new BigDecimal(1000));
             this.accountRepository.save(account);
             String token = this.tokenService.generateToken(account);
             return ResponseEntity.ok(new ResponseDTO(account.getName(),token));
