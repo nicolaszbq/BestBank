@@ -13,7 +13,7 @@ import java.util.Date;
 public interface TransactionRepository extends JpaRepository<Transaction, String> {
     Transaction getTransactionById(String id);
 
-    Page<Transaction> findAllByFromAccountIdAndTimeOfTransactionBetween(Long fromAccountId, Date timeOfTransactionAfter, Date timeOfTransactionBefore, Pageable pageable);
+    Page<Transaction> findAllByFromAccountIdAndTimeOfTransactionBetween(String fromAccountId, Date timeOfTransactionAfter, Date timeOfTransactionBefore, Pageable pageable);
 
-    Page<Transaction> findAllByFromAccountIdAndTransactionTypeOrderByTimeOfTransactionDesc(Long fromAccountId, Type transactionType, Pageable pageable);
+    Page<Transaction> findAllByFromAccountIdAndTransactionTypeOrderByTimeOfTransactionDesc(String fromAccountId, Type transactionType, Pageable pageable);
 }

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class WithdrawRequestDTO {
-    private Long targetAccountId;
+    private String targetAccountId;
     private BigDecimal amount;
-    private Long givenId;
+    private String givenId;
 }

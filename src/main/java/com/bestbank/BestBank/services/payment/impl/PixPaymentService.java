@@ -25,8 +25,8 @@ public class PixPaymentService implements PaymentService {
     @Override
     @Transactional
     public void process(Transaction transaction) {
-        Long fromId = transaction.getFromAccountId();
-        Long toId = transaction.getToAccountId();
+        String fromId = transaction.getFromAccountId();
+        String toId = transaction.getToAccountId();
         Account from = accountRepository.findById(fromId).orElseThrow(() -> new RuntimeException("conta nao encontrada"));
         Account to = accountRepository.findById(toId).orElseThrow(() -> new RuntimeException("conta nao encontrada"));
 
@@ -52,8 +52,8 @@ public class PixPaymentService implements PaymentService {
     @Override
     @Transactional
     public void reverse(Transaction transaction) {
-        Long fromId = transaction.getFromAccountId();
-        Long toId = transaction.getToAccountId();
+        String fromId = transaction.getFromAccountId();
+        String toId = transaction.getToAccountId();
         Account from = accountRepository.findById(fromId).orElseThrow(() -> new RuntimeException("conta nao encontrada"));
         Account to = accountRepository.findById(toId).orElseThrow(() -> new RuntimeException("conta nao encontrada"));
 

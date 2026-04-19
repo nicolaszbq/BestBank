@@ -23,9 +23,9 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private Long fromAccountId;
+    private String fromAccountId;
 
-    private Long toAccountId;
+    private String toAccountId;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeOfTransaction;
@@ -34,7 +34,7 @@ public class Transaction {
     private Type transactionType;
     private Status transactionStatus;
 
-    public Transaction(Long fromAccountId, Long toAccountId, BigDecimal amount, Type transactionType){
+    public Transaction(String fromAccountId, String toAccountId, BigDecimal amount, Type transactionType){
         this.fromAccountId = fromAccountId;
         this.toAccountId = toAccountId;
         this.timeOfTransaction = new Date();

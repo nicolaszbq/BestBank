@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.hibernate.annotations.GenericGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
@@ -17,11 +17,14 @@ import java.util.Date;
 @Getter
 @Setter
 public class Account {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "ulid")
+    @GenericGenerator(name = "ulid", strategy = "com.bestbank.BestBank.generator.UlidGenerator")
+    private String id;
 
     private String name;
+    private String password;
     private int agency;
     private String email;
     private Date birthDate;
@@ -30,7 +33,7 @@ public class Account {
 
     private BigDecimal limitSituation;
 
-    public Account(Long id, String name, int agency, String email, Date birthDate, BigDecimal balanceAmount, BigDecimal limitAmount){
+    public Account(String id, String name, int agency, String email, Date birthDate, BigDecimal balanceAmount, BigDecimal limitAmount){
         this.id = id;
         this.name = name;
         this.agency = agency;

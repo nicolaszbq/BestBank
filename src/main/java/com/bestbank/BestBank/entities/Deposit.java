@@ -20,11 +20,11 @@ public class Deposit {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    private Long destinationAccountId;
+    private String destinationAccountId;
     private BigDecimal amount;
     private Date depositDate;
     private Status status;
 
-    public Deposit(Long id, BigDecimal amount, Date date, Status status) {
+    public Deposit(String id, BigDecimal amount, Date date, Status status) {
     }
 }

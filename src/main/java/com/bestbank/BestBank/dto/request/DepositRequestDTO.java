@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class DepositRequestDTO {
-    private Long destinationAccountId;
+    private String destinationAccountId;
     private BigDecimal amount;
-    private Long givenId;
+    private String givenId;
 }

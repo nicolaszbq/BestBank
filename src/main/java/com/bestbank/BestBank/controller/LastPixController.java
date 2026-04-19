@@ -20,10 +20,7 @@ public class LastPixController {
     //Long fromAccountId, Type transactionType, Pageable pageable
     @GetMapping
     public PagedModel<Transaction> findAllByFromAccountIdAndTransactionType(
-        @RequestParam(value = "fromAccountId") Long fromAccountId
-        //@RequestParam(value = "transactionType")Type transactionType,
-        //@RequestParam(value = "page", defaultValue = "0") int page,
-        //@RequestParam(value = "size", defaultValue = "5") int size,
+        @RequestParam(value = "fromAccountId") String fromAccountId
         ){
         Pageable pageable = PageRequest.of(0,5);
         Page<Transaction> pixes = this.lastPixService.findAllByFromAccountIdAndTransactionTypeOrderByTimeOfTransactionDesc(

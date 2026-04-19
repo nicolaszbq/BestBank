@@ -19,7 +19,7 @@ public class LastPixService {
     private AccountRepository accountRepository;
 
     public Page<Transaction> findAllByFromAccountIdAndTransactionTypeOrderByTimeOfTransactionDesc(
-            Long fromAccountId,
+            String fromAccountId,
             Type transactionType,
             Pageable pageable
     ){

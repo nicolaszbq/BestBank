@@ -20,12 +20,12 @@ public class Withdraw {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    private Long targetAccountId;
+    private String targetAccountId;
     private BigDecimal amount;
     private Date withdrawDate;
     private Status status;
 
 
-    public Withdraw(Long targetAccountId, BigDecimal amount, Date date, Status status) {
+    public Withdraw(String targetAccountId, BigDecimal amount, Date date, Status status) {
     }
 }

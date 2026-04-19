@@ -25,7 +25,7 @@ public class TransactionHistoryController {
 
     @GetMapping
     PagedModel<Transaction> findAllByFromAccountIdAndTimeOfTransactionBetween(
-            @RequestParam(value = "accountId") Long accountId,
+            @RequestParam(value = "accountId") String accountId,
             @RequestParam(value = "start") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS") Date start,
             @RequestParam(value = "end") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS") Date end,
             @RequestParam(value = "page", defaultValue = "0") int page,

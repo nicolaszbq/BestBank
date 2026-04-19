@@ -16,7 +16,7 @@ public class TransactionHistoryService {
     private TransactionRepository transactionRepository;
 
     public Page<Transaction> findAllByFromAccountIdAndTimeOfTransactionBetween(
-            Long accountId,
+            String accountId,
             Date start,
             Date end,
             Pageable pageable
