@@ -55,7 +55,8 @@ public class AuthController {
             account.setName(dto.name());
             account.setBirthDate(dto.birthDate());
             account.setBalanceAmount(new BigDecimal("0"));
-            account.setLimitAmount(new BigDecimal("0"));
+            account.setLimitAmount(new BigDecimal("500"));
+            account.setLimitSituation(new BigDecimal("0"));
             account.setAgency(1593);
             account.setLimitAmount(new BigDecimal(1000));
             this.accountRepository.save(account);

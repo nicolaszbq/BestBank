@@ -23,9 +23,6 @@ public class AccountController {
         return accounts;
     }
 
-    @PostMapping("/save")
-    public void createAccount(@RequestBody Account acc){
-        accountService.save(acc);
-    }
+
 
 }
