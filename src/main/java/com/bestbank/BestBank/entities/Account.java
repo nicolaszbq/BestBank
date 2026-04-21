@@ -25,8 +25,12 @@ public class Account {
 
     private String name;
     private String password;
+
     private int agency;
+
+    @Column(unique = true)
     private String email;
+
     private LocalDate birthDate;
     private BigDecimal balanceAmount;
     private BigDecimal limitAmount;
