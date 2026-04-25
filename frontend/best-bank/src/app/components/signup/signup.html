@@ -1,0 +1,60 @@
+<main>
+    <div class="main-card">
+
+        <div class="logo-area">
+            <img src="logo-group.svg">
+            <span class="logintext">SIGNUP</span>
+            <div class="line-separation"></div>
+        </div>
+
+        <div class="form-area">
+            <form [formGroup]="signupForm">
+                <app-input-component
+                    formControlName="name"
+                    type="text"
+                    placeholder="Petter Griffin"
+                    label="Name"
+                    inputName="name"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="email"
+                    type="email"
+                    placeholder="emailexample@gmail.com"
+                    label="Email"
+                    inputName="email"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="birthDate"
+                    type="date"
+                    placeholder="21/01/2005"
+                    label="Birth Date"
+                    inputName="birthDate"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="password"
+                    type="password"
+                    placeholder="**************"
+                    label="Password"
+                    inputName="password"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="confirmpassword"
+                    type="password"
+                    placeholder="**************"
+                    label="Confirm your Password"
+                    inputName="confirmpassword"
+                ></app-input-component>
+                
+            </form>
+        </div>
+        <div class="buttons-area">
+            <button class="signupBtn" (click)="submit()">Signup</button>
+            <span class="subtitle">Have an account?</span>
+            <button class="loginBtn" >Login</button>
+        </div>
+    </div>
+</main>

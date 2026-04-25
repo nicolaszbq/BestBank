@@ -1,1 +1,37 @@
-<p>login works!</p>
+<main>
+    <div class="main-card">
+
+        <div class="logo-area">
+            <img src="logo-group.svg">
+            <span class="logintext">LOGIN</span>
+            <div class="line-separation"></div>
+        </div>
+
+        <div class="form-area">
+            <form [formGroup]="loginForm">
+                <app-input-component
+                    formControlName="email"
+                    type="email"
+                    placeholder="emailexample@gmail.com"
+                    label="Email"
+                    inputName="email"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="password"
+                    type="password"
+                    placeholder="**************"
+                    label="Password"
+                    inputName="password"
+                ></app-input-component>
+                
+                <span class="forgot-text">Forgot your password?</span>
+            </form>
+        </div>
+        <div class="buttons-area">
+            <button class="loginBtn" (click)="submit()">Login</button>
+            <span class="subtitle">Don't have an account yet?</span>
+            <button class="signupBtn" (click)="navigateToSignup()">Signup</button>
+        </div>
+    </div>
+</main>

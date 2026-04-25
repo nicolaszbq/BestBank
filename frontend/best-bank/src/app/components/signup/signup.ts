@@ -2,31 +2,35 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { InputComponent } from '../input-component/input-component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { email } from '@angular/forms/signals';
+
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   imports: [
     RouterModule,
     InputComponent,
     ReactiveFormsModule
   ],
-  templateUrl: './login.html',
-  styleUrl: './login.scss',
+  templateUrl: './signup.html',
+  styleUrl: './signup.scss',
 })
-export class Login {
+export class Signup {
   @Output("submit") onSubmit = new EventEmitter();
-  loginForm !: FormGroup;
   private router = inject(Router);
+
+  signupForm !: FormGroup;
   constructor(){
-    
-    this.loginForm = new FormGroup({
+    this.signupForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
       email: new FormControl('',[Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      birthDate: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      confirmpassword: new FormControl('', [Validators.required, Validators.minLength(6)])
 
     });
   }
+
   submit(){
-    console.log(this.loginForm.value);
+    console.log(this.signupForm.value);
   }
   navigateToSignup(){
     this.router.navigate(['/signup']);
