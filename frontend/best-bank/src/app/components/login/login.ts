@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { email } from '@angular/forms/signals';
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
     RouterModule,
     InputComponent,

@@ -9,7 +9,8 @@ import { RouterModule } from '@angular/router';
     RouterModule
 ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  standalone: true
 })
 export class App {
   private router = inject(Router);

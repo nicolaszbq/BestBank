@@ -44,7 +44,13 @@
   margin-bottom: 50px;
   padding: 0px 80px;
 }
-
+.bottom{
+  display: flex;
+  gap:250px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
 
 .line-separation{
   align-self: center;
