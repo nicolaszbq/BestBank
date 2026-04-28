@@ -1,0 +1,65 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* barra lateral esquerda */
+.sidebar {
+  width: 80px; 
+  background: linear-gradient(to bottom, #ff4b7d, #c4003c);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+/* área principal */
+.content {
+  
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+  
+}
+
+.blank-area{
+  
+    display: flex;
+    flex-direction: column;
+    img{
+        padding: 20px;
+        height: 80px;
+    }
+    border-radius: 60px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 2px 20px;
+}
+
+.top{
+  display: flex;
+  gap: 280px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  padding: 0px 80px;
+}
+
+
+.line-separation{
+  align-self: center;
+  margin-left: 60px;
+  height: 1px;
+  width: 75%;
+  margin-right: 50px;
+  background-color: black;
+  
+}
+.logo{
+  transition: 0.7s;
+}
+.logo:hover{
+  cursor: pointer;
+  transform: rotate(360deg) scale(1.2);
+  
+}

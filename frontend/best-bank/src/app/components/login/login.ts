@@ -27,8 +27,13 @@ export class Login {
   }
   submit(){
     console.log(this.loginForm.value);
+    //essa parte deve ser alterada depois, para só ir para a pagina de login caso o login na API for concluido com sucesso
+    this.navigateToInitialPage();
   }
   navigateToSignup(){
     this.router.navigate(['/signup']);
+  }
+  navigateToInitialPage(){
+    this.router.navigate(['/initial']);
   }
 }

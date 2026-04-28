@@ -1,0 +1,23 @@
+.content{
+    transition: 0.25s;
+    font-family: 'Poppins';
+    display: grid;
+    width: 400px;
+    background: linear-gradient(to bottom, #F0F0F0, #FFFFFF);
+    padding: 40px 50px 80px;
+    box-shadow: 2px 10px 10px #868686;
+    border-radius: 40px;
+    span{
+        font-size: 24px;
+    }
+}
+
+.line-separation{
+    background-color: black;
+    height: 1px;
+    width: 90%;
+}
+
+.content:hover{
+    transform: translateY(-1.6px);
+}

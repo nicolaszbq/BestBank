@@ -3,6 +3,7 @@ import { App } from './app';
 import { Login } from './components/login/login';
 import { HomeComponent } from './components/home-component/home-component';
 import { Signup } from './components/signup/signup';
+import { InitialPage } from './components/initial-page/initial-page';
 
 export const routes: Routes = [
     {
@@ -18,6 +19,11 @@ export const routes: Routes = [
     {
         path:'signup',
         component:Signup,
-        title:"Signup"
+        title:'Signup'
+    },
+    {
+        path:'initial',
+        component: InitialPage,
+        title:'InitialPage'
     }
 ];

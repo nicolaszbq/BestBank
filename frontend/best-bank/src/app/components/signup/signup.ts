@@ -32,7 +32,7 @@ export class Signup {
   submit(){
     console.log(this.signupForm.value);
   }
-  navigateToSignup(){
-    this.router.navigate(['/signup']);
+  navigateToLogin(){
+    this.router.navigate(['/login']);
   }
 }
