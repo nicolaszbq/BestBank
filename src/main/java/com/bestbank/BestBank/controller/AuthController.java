@@ -53,6 +53,7 @@ public class AuthController {
             account.setPassword(passwordEncoder.encode(dto.password()));
             account.setEmail(dto.email());
             account.setName(dto.name());
+            System.out.println("DATE: " + dto.birthDate());
             account.setBirthDate(dto.birthDate());
             account.setBalanceAmount(new BigDecimal("0"));
             account.setLimitAmount(new BigDecimal("500"));
