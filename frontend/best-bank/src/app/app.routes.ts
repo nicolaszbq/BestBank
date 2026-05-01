@@ -4,6 +4,8 @@ import { Login } from './components/login/login';
 import { HomeComponent } from './components/home-component/home-component';
 import { Signup } from './components/signup/signup';
 import { InitialPage } from './components/initial-page/initial-page';
+import { PixArea } from './components/pix-area/pix-area';
+import { NewTransfer } from './components/pix-area/new-transfer/new-transfer';
 
 export const routes: Routes = [
     {
@@ -25,5 +27,15 @@ export const routes: Routes = [
         path:'initial',
         component: InitialPage,
         title:'InitialPage'
+    },
+    {
+        path:'pixarea',
+        component: PixArea,
+        title:'Pix Area'
+    },
+    {
+        path:'newTransfer',
+        component:NewTransfer,
+        title:'New Transfer'
     }
 ];

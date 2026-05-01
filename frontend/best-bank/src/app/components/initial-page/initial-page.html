@@ -7,7 +7,7 @@
   <main class="content">
     <div class="blank-area">
       <div>
-        <img class="logo" src="logo-group.svg">
+        <img class="logo" src="logo-group.svg" (click)="navigateToPage()">
       </div>
       <div class="top">
         <app-balance></app-balance>
@@ -17,7 +17,7 @@
       <div class="bottom">
         <app-transfer-option
           name="Pix and transfer"
-          page="/login"
+          page="/pixarea"
         ></app-transfer-option>
 
         <app-transfer-option

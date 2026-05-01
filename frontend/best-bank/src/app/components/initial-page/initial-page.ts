@@ -14,4 +14,9 @@ import { Router } from '@angular/router';
   templateUrl: './initial-page.html',
   styleUrl: './initial-page.scss',
 })
-export class InitialPage {}
+export class InitialPage {
+  constructor(private router:Router){}
+  navigateToPage(){
+    this.router.navigate([""]);
+  }
+}

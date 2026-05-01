@@ -1,0 +1,46 @@
+<main>
+    <div class="content">
+
+        <div class="top">
+            <img src="logo-group.svg">
+        </div>
+
+        <div class="inputs">
+            <form [formGroup]="newTransferGroup">
+                <app-input-component
+                    formControlName="amount"
+                    type="number"
+                    placeholder="R$ 20,00"
+                    label="Enter the amount to transfer"
+                    inputName="amount"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="userCode"
+                    type="text"
+                    placeholder="123-21345"
+                    label="Enter person's user code"
+                    inputName="userCode"
+                ></app-input-component>
+
+                <app-input-component
+                    formControlName="password"
+                    type="password"
+                    placeholder="**************"
+                    label="Confirm yout password"
+                    inputName="password"
+                ></app-input-component>
+                
+            </form>
+        </div>
+
+        <div class="new-tr-btn" (click)="submit()">
+            <h1>Deposit</h1>
+        </div>
+
+        <div class="footer" (click)="navigateToPage()">
+            <span>go back</span>
+            <div class="line-separation"></div>
+        </div>
+    </div>
+</main>

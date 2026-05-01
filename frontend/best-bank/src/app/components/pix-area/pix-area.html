@@ -1,0 +1,26 @@
+<main>
+    <div class="content">
+
+        <div class="top">
+            <h1>Pix and transfer</h1>
+            <span>Last transferences</span>
+
+            <div class="last-pixes">
+                <app-last-pix
+                    name="Mario da silva"
+                ></app-last-pix>
+            </div>
+        </div>
+
+        <div class="new-tr-btn" (click)="navigateToTransfer()" >
+            <h1>Make a new transference</h1>
+            <img src="plus-icon.svg">
+        </div>
+
+        <div class="footer" (click)="navigateToPage()">
+            <span>go back</span>
+            <div class="line-separation"></div>
+        </div>
+    </div>
+</main>
+
