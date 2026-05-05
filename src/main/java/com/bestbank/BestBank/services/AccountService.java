@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -20,5 +21,9 @@ public class AccountService {
     public void save(Account a){
         Account b = new Account(null,a.getName(), a.getPassword(),a.getAgency(),a.getEmail(),a.getBirthDate(), a.getBalanceAmount(),a.getLimitAmount(),new BigDecimal("0"));
         accountRepository.save(b);
+    }
+
+    public Optional<Account> findById(String id){
+        return accountRepository.findById(id);
     }
 }

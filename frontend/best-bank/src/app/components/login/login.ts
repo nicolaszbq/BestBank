@@ -25,12 +25,19 @@ export class Login {
   @Output("submit") onSubmit = new EventEmitter();
   loginForm !: FormGroup;
   private router = inject(Router);
+
   constructor( private loginService: LoginService){
     this.loginForm = new FormGroup({
       email: new FormControl('',[Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }
+  ngOnInit(): void{
+    if(sessionStorage.getItem("auth-token") != null){
+      this.navigateToInitialPage();
+    }
+  }
+
   submit(){
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
       next: ()=> {

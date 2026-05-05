@@ -1,6 +1,13 @@
 <div class="content">
     <img src="logo-group.svg">
     <span>Balance</span>
-    <h1>R$ {{amount}}</h1>
+    @if (isLoading()) {
+        <h1>Carregando...</h1>
+    } @else if (errorMessage()) {
+        <h1>{{ errorMessage() }}</h1>
+    } @else {
+        <h1>R$ {{ balance() }}</h1>
+    }
+    
     <div class="line-separation"></div>
 </div>

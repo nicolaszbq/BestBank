@@ -4,6 +4,7 @@ import { Limit } from '../usercomponents/limit/limit';
 import { TransferOption } from '../usercomponents/transfer-option/transfer-option';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '../../services/user-service';
 
 @Component({
   selector: 'app-initial-page',
@@ -16,7 +17,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './initial-page.scss',
 })
 export class InitialPage {
-  constructor(private router:Router, private httpClient: HttpClient){}
+  constructor(private router:Router, private httpClient: HttpClient, private userService: UserService){}
+
   navigateToPage(){
     this.router.navigate([""]);
   }
@@ -25,4 +27,6 @@ export class InitialPage {
     sessionStorage.removeItem("name");
     this.router.navigate(["/login"]);
   }
+
+  
 }

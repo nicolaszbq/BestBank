@@ -20,6 +20,7 @@ public class TokenService {
     public String generateToken(Account account){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secretKey);
+            
             String token = JWT.create()
                     .withIssuer("bank-api")
                     .withSubject(account.getId())
