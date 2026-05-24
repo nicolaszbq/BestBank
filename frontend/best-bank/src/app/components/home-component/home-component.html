@@ -1,6 +1,11 @@
 <main class="main">
   <div class="content">
-    <button class="login-register-btn" (click)="navigate()">Login/Register</button>
+    @if (isnull()) {
+        <button class="login-register-btn" (click)="navigate()">Login/Signup</button>
+    }@else if (text()) {
+        <button class="login-register-btn" (click)="navigate()">{{text()}}</button>
+    }
+    
 
     <div class="text-area">
       <div class="title-row">

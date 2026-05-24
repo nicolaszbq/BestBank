@@ -23,19 +23,16 @@ public class WithdrawService {
 
 
     @Transactional
-    public void withdraw(WithdrawRequestDTO dto){
-        Account acc = accountRepository.findById(dto.getTargetAccountId()).orElseThrow(() -> new RuntimeException("This account does not exist!"));
-        if (acc.getId().equals(dto.getGivenId())){
-            acc.setBalanceAmount(acc.getBalanceAmount().subtract(dto.getAmount()));
-            Withdraw wit = new Withdraw(
-                    dto.getTargetAccountId(),
-                    dto.getAmount(),
-                    new Date(),
-                    Status.COMPLETED
-            );
-            withdrawRepository.save(wit);
-        }else{
-            throw new RuntimeException("Your Id doesnt match with target's account id!");
-        }
+    public void withdraw(WithdrawRequestDTO dto, String userid){
+        Account acc = accountRepository.findById(userid).orElseThrow(() -> new RuntimeException("This account does not exist!"));
+        acc.setBalanceAmount(acc.getBalanceAmount().subtract(dto.getAmount()));
+        Withdraw wit = new Withdraw(
+                userid,
+                dto.getAmount(),
+                new Date(),
+                Status.COMPLETED
+        );
+        withdrawRepository.save(wit);
+
     }
 }

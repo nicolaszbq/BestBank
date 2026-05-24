@@ -1,0 +1,44 @@
+<main>
+    <div class="content">
+
+        <div class="top">
+            <img src="logo-group.svg">
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <img src="logo-group.svg">
+            </div>
+
+            <div class="balancearea">
+                <span>Your balance</span>
+                    @if (isLoading()) {
+                        <h1>Carregando...</h1>
+                    } @else if (errorMessage()) {
+                        <h1>{{ errorMessage() }}</h1>
+                    } @else {
+                        <h1>R$ {{ balance() }}</h1>
+                    }
+            </div>
+            <div class="separation">
+
+            </div>
+
+            <div class="newtransferbtn">
+                <div class="btn-content" (click)="navigateToTransferPage()">    
+                    <span class="btn-span">New Transfer</span>
+                    <img class="plus-icon" src="plus-icon.svg">
+                </div>
+            </div>
+
+            <div class="footer" (click)="navigateToInitialPage()" >
+                <span>Homepage</span>
+                <div class="line-separation"></div>
+            </div>
+        </div>
+
+        
+
+        
+    </div>
+</main>

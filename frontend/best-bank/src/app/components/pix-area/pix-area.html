@@ -6,9 +6,12 @@
             <span>Last transferences</span>
 
             <div class="last-pixes">
-                <app-last-pix
-                    name="Mario da silva"
-                ></app-last-pix>
+                    @for (pix of lastpixes; track pix.id) {
+                        <app-last-pix
+                        [name]="pix.recipientName"
+                        [id]="pix.id" 
+                        ></app-last-pix>
+                    }
             </div>
         </div>
 

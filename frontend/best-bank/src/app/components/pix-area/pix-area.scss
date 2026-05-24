@@ -44,6 +44,8 @@ main{
     }
 
     .last-pixes{
+        display: flex;
+        flex-direction: row;
         gap: 20px;
         padding: 20px;
     }

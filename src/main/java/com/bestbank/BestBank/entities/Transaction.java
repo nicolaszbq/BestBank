@@ -3,10 +3,7 @@ package com.bestbank.BestBank.entities;
 import com.bestbank.BestBank.enums.Status;
 import com.bestbank.BestBank.enums.Type;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,23 +1,29 @@
 package com.bestbank.BestBank.controller;
 
 import com.auth0.jwt.JWT;
+import com.bestbank.BestBank.dto.request.CheckPassRequestDTO;
 import com.bestbank.BestBank.dto.request.TokenRequest;
 import com.bestbank.BestBank.entities.Account;
 import com.bestbank.BestBank.infra.security.TokenService;
 import com.bestbank.BestBank.services.AccountService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/account")
+
 public class AccountController {
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private TokenService tokenService;
@@ -40,6 +46,32 @@ public class AccountController {
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
+    }
+
+    @PostMapping("/checkpass")
+    public ResponseEntity<String> checkpass(
+            @RequestHeader("Authorization") String auth,
+            @RequestBody CheckPassRequestDTO dto
+    ) {
+        System.out.println("CHEGOU NO CHECK");
+        String token = auth.replace("Bearer ", "");
+        String userid = this.tokenService.validateToken(token);
+
+        if (userid == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        Account account = this.accountService.findById(userid)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        if (passwordEncoder.matches(dto.password(), account.getPassword())) {
+
+            System.out.println("Passou do check");
+            return ResponseEntity.ok("Senhas batem!");
+
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
 }

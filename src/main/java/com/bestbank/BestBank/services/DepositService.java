@@ -22,19 +22,16 @@ public class DepositService {
     private AccountRepository accountRepository;
 
     @Transactional
-    public void deposit(DepositRequestDTO dto){
-        Account acc = accountRepository.findById(dto.getDestinationAccountId()).orElseThrow(() -> new RuntimeException("This account does not exist!"));
-        if(dto.getDestinationAccountId().equals(dto.getGivenId())){
-            acc.setBalanceAmount(acc.getBalanceAmount().add(dto.getAmount()));
-            Deposit dep = new Deposit(
-                    acc.getId(),
-                    dto.getAmount(),
-                    new Date(),
-                    Status.COMPLETED
-            );
-            depositRepository.save(dep);
-        }else{
-            throw new RuntimeException("You are not able to make this deposit!");
-        }
+    public void deposit(DepositRequestDTO dto, String userId){
+        Account acc = accountRepository.findById(userId).orElseThrow(() -> new RuntimeException("This account does not exist!"));
+
+        acc.setBalanceAmount(acc.getBalanceAmount().add(dto.getAmount()));
+        Deposit dep = new Deposit(
+                acc.getId(),
+                dto.getAmount(),
+                new Date(),
+                Status.COMPLETED
+        );
+        depositRepository.save(dep);
     }
 }
